@@ -28,6 +28,6 @@ SELECT
 
 FROM {{ ref('orders') }}
 JOIN {{ ref('order_lines') }} USING (order_no)
-JOIN {{ ref('beers_with_breweries') }} USING (beer_id)
+JOIN {{ ref('beers_with_breweries') }} ON (CAST(beers_with_breweries.beer_id AS INT64) = order_lines.beer_id)
 
 WHERE orders.status = 'DELIVERED'
