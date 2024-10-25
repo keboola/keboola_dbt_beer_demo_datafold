@@ -2,7 +2,6 @@ version: 2
 
 sources:
   - name: dbt_beer_seed
-    project: devel-249608
     dataset: dbt_beer_seed
 
     freshness:
