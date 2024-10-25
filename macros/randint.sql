@@ -20,3 +20,7 @@ The name of the macro is borrowed from the analogous Python `random.randint()` f
 {%- macro databricks__randint(min, max) -%}
     (RANDOM() * {{ max - min }} + {{ min }})::int
 {%- endmacro -%}
+
+{%- macro bigquery__randint(min, max) -%}
+    CAST(FLOOR(10000*RAND()) AS INT64)
+{%- endmacro -%}

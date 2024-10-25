@@ -25,10 +25,10 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "dbt_modules"
 
 # https://docs.getdbt.com/reference/project-configs/quoting
-quoting:
-  database: true
-  schema: true
-  identifier: true
+#quoting:
+#  database: true
+#  schema: true
+#  identifier: true
 
 
 seeds:

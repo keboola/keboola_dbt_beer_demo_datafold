@@ -17,3 +17,7 @@ This macro is needed because the date format string differs from one database ba
     {# Reference: https://docs.databricks.com/sql/language-manual/sql-ref-datetime-pattern.html #}
     'yMMdd'
 {%- endmacro -%}
+
+{%- macro bigquery__yyymmdd() -%}
+    '%Y%m%d'
+{%- endmacro -%}

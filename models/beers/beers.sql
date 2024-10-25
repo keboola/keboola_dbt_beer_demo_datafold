@@ -9,11 +9,11 @@ SELECT
   "style"         AS beer_style,
   "abv"           AS abv,
   "ibu"           AS ibu,
-  CASE 
-       WHEN "ibu" <= 50 THEN 'Malty'
-       WHEN "ibu" > 50 THEN 'Hoppy'
-   END AS bitterness,
+  CASE
+       WHEN SAFE_CAST("ibu" AS INT) <= 50 THEN 'Malty'
+       WHEN SAFE_CAST("ibu" AS INT) > 50 THEN 'Hoppy'
+  END AS bitterness,
   "brewery_id"    AS brewery_id,
   "ounces"        AS ounces
 FROM
-  {{ source('WORKSPACE_863912091', 'beers') }}
+  {{ source('in.c-dbt_beer_seed', 'seed_beers') }}

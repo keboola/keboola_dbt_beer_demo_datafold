@@ -23,3 +23,8 @@ It is thus recommended to only use the recognized formatting symbols in format e
     {# https://docs.snowflake.com/en/sql-reference/functions/to_char.html #}
     TO_VARCHAR
 {%- endmacro -%}
+
+{%- macro bigquery__date_format() -%}
+    {# https://cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#format_date #}
+    FORMAT_DATE
+{%- endmacro -%}

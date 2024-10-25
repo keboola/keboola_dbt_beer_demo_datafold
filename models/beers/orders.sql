@@ -12,23 +12,15 @@ WITH generated_orders AS (
     {% for day_ago in range(30) %}
         {% for order_number in range(10) %}
           SELECT
-              CONCAT(
-                   {{ date_format() }}(
-                        DATEADD(Day, -1 * {{ day_ago }}, CURRENT_DATE),
-                        {{ yyymmdd() }}
-                   ),
-                   '{{ order_number }}'
-             )::int                                                            AS order_no,
-
-             {{ randint(123456, 654321) }}                                  AS customer_id,
-
+              GENERATE_UUID() AS order_no,
+             {{ bigquery__randint(123456, 654321) }} AS customer_id,
              {% if order_number is divisibleby 13 %}
-                'PENDING'                                                      AS status,
+                'PENDING' AS status,
              {% else %}
-                'DELIVERED'                                                    AS status,
+                'DELIVERED' AS status,
              {% endif %}
-             DATEADD(Day, -1 * {{ day_ago }}, CURRENT_DATE)                    AS created_at,
-             current_timestamp                                                 AS changed_at
+             DATE_ADD(DATE(CURRENT_DATE), INTERVAL -1 * {{ day_ago }} DAY) AS created_at,
+             current_timestamp AS changed_at
 
           {% if not loop.last %}
             UNION ALL
