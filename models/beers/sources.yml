@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: dbt_beer_seed
-    dataset: dbt_beer_seed
+    dataset: in.c-dbt_beer_seed
 
     freshness:
       warn_after:
