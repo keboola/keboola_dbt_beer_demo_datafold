@@ -32,7 +32,7 @@ WITH generated_order_lines AS (
                             SELECT MOD(
                                 CAST(FLOOR(100*RAND()) AS INT64),
                                 (
-                                    SELECT MAX(CAST(beer_id AS INT64)) FROM {{ ref('beers') }}
+                                    SELECT MAX(SAFE_CAST(beer_id AS INT64)) FROM {{ ref('beers') }}
                                 )
                             )
                        )                                                          AS beer_id,
