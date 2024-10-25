@@ -9,8 +9,8 @@
 -- to today
 
 WITH generated_order_lines AS (
-    {% for day_ago in range(30) %}
-        {% for order_number in range(10) %}
+    {% for day_ago in range(5) %}
+        {% for order_number in range(2) %}
             -- Each order has between 1 and 5 order_lines
             {% for order_line in range(3) %}
                 SELECT CONCAT(
