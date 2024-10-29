@@ -62,7 +62,7 @@ models:
     meta:
       owner: fisa@keboola.com
     description: "Beer List"
-    tags: 
+    tags:
       - products
       - sales
       - ecommerce
@@ -125,7 +125,7 @@ models:
             num_unique_breweries: # name of your metric
               type: count_distinct
               description: "Distinct Number of Breweries"
-      
+
       - name: ounces
         description: Volume of a single unit
         meta:
@@ -242,8 +242,7 @@ models:
     columns:
       - name: customer_id
         description: "Customer id"
-        meta: 
+        meta:
           primary-key: true
         tags:
           - primary-key
-
