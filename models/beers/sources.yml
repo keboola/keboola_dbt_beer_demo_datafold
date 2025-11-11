@@ -1,9 +1,7 @@
 version: 2
 
 sources:
-  - name: REMOTE_WORKSPACE
-    database: KEBOOLA_9457
-    schema: WORKSPACE_148593438
+  - name: WORKSPACE_148593438
 
     freshness:
       warn_after:
