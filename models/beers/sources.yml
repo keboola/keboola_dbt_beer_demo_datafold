@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: remote_workspace
+  - name: WORKSPACE_148593438
 
     freshness:
       warn_after:
