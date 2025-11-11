@@ -16,4 +16,4 @@ SELECT
   "brewery_id"    AS brewery_id,
   "ounces"        AS ounces
 FROM
-  {{ source('seed_beers') }}
+  {{ source('remote_workspace', 'seed_beers') }}

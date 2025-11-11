@@ -10,4 +10,4 @@ SELECT
   trim("state")           AS brewery_state,
   'USA'                 AS brewery_country
 FROM
-  {{ source('seed_breweries') }}
+  {{ source('remote_workspace', 'seed_breweries') }}
